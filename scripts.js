@@ -15,7 +15,11 @@ function Book(name, author, pages, isRead) {
 function addBookToLibrary() {}
 
 function displayBooks() {
-    bookshelf.textContent = `Index: ${i}, Name: ${book.name} Author: ${book.author}, Pages: ${book.pages}, Read: ${book.read}`;
+    myLibrary.forEach(function (book, index) {
+        let div = document.createElement("div");
+        div.textContent = `Name: ${book.name}, Author: ${book.author}, Pages: ${book.pages}, Read: ${book.read}`;
+        bookshelf.appendChild(div);
+    });
 }
 
 displayBooks();
