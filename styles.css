@@ -3,14 +3,31 @@
     padding: 0;
 }
 
-table,
-td {
-    border: 1px solid #333;
+body {
     text-align: center;
 }
 
-thead,
-tfoot {
-    background-color: #333;
-    color: #fff;
+.main {
+    display: flex;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid red;
+    height: 100vh;
+}
+
+.bookshelf {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    padding: 15px;
+    border: 1px solid brown;
+    width: 100%;
+}
+
+.bookshelf > div {
+    border: 1px solid black;
 }

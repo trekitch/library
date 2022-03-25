@@ -6,33 +6,66 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Library Of Alexandria</title>
         <link rel="stylesheet" href="./styles.css" />
-        <script src="./scripts.js" defer></script>
+        <!-- <script src="./scripts.js" defer></script> -->
     </head>
     <body>
-        <h1>Welcome to the Library</h1>
-        <div class="bookshelf">
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="4">Books</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Name</td>
-                        <td>Author</td>
-                        <td>Pages</td>
-                        <td>Read</td>
-                    </tr>
-                    <tr>
-                        <td>1984</td>
-                        <td>George Orwell</td>
-                        <td>328</td>
-                        <td>Yes</td>
-                    </tr>
-                </tbody>
-            </table>
+        <header class="header">
+            <h1>Welcome to the Library</h1>
+        </header>
+        <div class="main">
+            <div class="sidebar">
+                <form action="post">
+                    <div class="form-row">
+                        <label for="name">Book Title:</label>
+                        <input type="text" name="name" id="name" />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" id="author" />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="pages">Pages:</label>
+                        <input type="text" name="pages" id="pages" />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="read">Read:</label>
+                        <input type="checkbox" name="read" id="read" />
+                    </div>
+
+                    <div class="form-row">
+                        <button>Add Book</button>
+                    </div>
+                </form>
+            </div>
+            <div class="bookshelf">
+                <div>
+                    <p>Author: John Doe</p>
+                    <p>Title: Best Book Ever</p>
+                    <p>Pages: 325</p>
+                    <p>Read: Yes</p>
+                </div>
+                <div>
+                    <p>Author: John Doe</p>
+                    <p>Title: Best Book Ever</p>
+                    <p>Pages: 325</p>
+                    <p>Read: Yes</p>
+                </div>
+                <div>
+                    <p>Author: John Doe</p>
+                    <p>Title: Best Book Ever</p>
+                    <p>Pages: 325</p>
+                    <p>Read: Yes</p>
+                </div>
+                <div>
+                    <p>Author: John Doe</p>
+                    <p>Title: Best Book Ever</p>
+                    <p>Pages: 325</p>
+                    <p>Read: Yes</p>
+                </div>
+            </div>
         </div>
-        <button class="new-book">New Book</button>
     </body>
 </html>
