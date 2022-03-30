@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -17,17 +18,22 @@ body {
     justify-content: space-between;
     border: 1px solid red;
     height: 100vh;
+    width: 30%;
 }
 
 .bookshelf {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px;
-    padding: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+    grid-template-rows: repeat(2, 250px);
+    padding: 10px;
+    justify-content: center;
+    gap: 10px;
     border: 1px solid brown;
     width: 100%;
 }
 
 .bookshelf > div {
     border: 1px solid black;
+    height: 250px;
+    width: 250px;
 }
