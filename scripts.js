@@ -4,6 +4,12 @@ let myLibrary = [
 ];
 
 const bookshelf = document.querySelector(".bookshelf");
+const newBookBtn = document.querySelector(".newBook");
+const bookForm = document.querySelector(".bookForm");
+
+newBookBtn.addEventListener("click", () => {
+    bookForm.style.display = "inline";
+});
 
 function Book(name, author, pages, isRead) {
     this.name = name;
@@ -17,8 +23,23 @@ function addBookToLibrary() {}
 function displayBooks() {
     myLibrary.forEach(function (book, index) {
         let div = document.createElement("div");
-        div.textContent = `Name: ${book.name}, Author: ${book.author}, Pages: ${book.pages}, Read: ${book.read}`;
+        let namePara = document.createElement("p");
+        let authorPara = document.createElement("p");
+        let pagesPara = document.createElement("p");
+        let readPara = document.createElement("p");
+
+        authorPara.textContent = `Author: ${book.author}`;
+        namePara.textContent = `Title: ${book.name}`;
+        pagesPara.textContent = `Pages: ${book.pages}`;
+        readPara.textContent = `Read: ${book.read}`;
+        div.classList.add("card");
+
         bookshelf.appendChild(div);
+
+        div.appendChild(authorPara);
+        div.appendChild(namePara);
+        div.appendChild(pagesPara);
+        div.appendChild(readPara);
     });
 }
 
