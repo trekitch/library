@@ -6,9 +6,17 @@ let myLibrary = [
 const bookshelf = document.querySelector(".bookshelf");
 const newBookBtn = document.querySelector(".newBook");
 const bookForm = document.querySelector(".bookForm");
+const formContainer = document.querySelector(".formContainer");
+const cacnelBtn = document.querySelector(".cancel");
 
 newBookBtn.addEventListener("click", () => {
     bookForm.style.display = "inline";
+    formContainer.style.display = "flex";
+});
+
+cacnelBtn.addEventListener("click", () => {
+    bookForm.style.display = "none";
+    formContainer.style.display = "none";
 });
 
 function Book(name, author, pages, isRead) {
