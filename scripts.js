@@ -8,6 +8,7 @@ const newBookBtn = document.querySelector(".newBook");
 const bookForm = document.querySelector(".bookForm");
 const formContainer = document.querySelector(".formContainer");
 const cacnelBtn = document.querySelector(".cancel");
+const addBook = document.querySelector(".addBook");
 
 newBookBtn.addEventListener("click", () => {
     bookForm.style.display = "inline";
@@ -19,6 +20,15 @@ cacnelBtn.addEventListener("click", () => {
     formContainer.style.display = "none";
 });
 
+bookForm.addEventListener("submit", (event) => {
+    console.log(`Form Submitted! Time stamp: ${event.timeStamp}`);
+    event.preventDefault();
+    console.log(event.target.elements.name.value);
+    console.log(event.target.elements.author.value);
+    console.log(event.target.elements.pages.value);
+    console.log(event.target.elements.read.value);
+});
+
 function Book(name, author, pages, isRead) {
     this.name = name;
     this.author = author;
@@ -26,7 +36,10 @@ function Book(name, author, pages, isRead) {
     this.isRead = isRead;
 }
 
-function addBookToLibrary() {}
+function addBookToLibrary(name, author, pages, read) {
+    let book = new Book(name, author, pages, read);
+    myLibrary.push(book);
+}
 
 function displayBooks() {
     myLibrary.forEach(function (book, index) {
