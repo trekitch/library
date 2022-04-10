@@ -1,7 +1,4 @@
-let myLibrary = [
-    { name: "Hatchet", author: "Gary Paulsen", pages: "195", read: "Yes" },
-    { name: "To Kill a Mockingbird", author: "Harper Lee", pages: "336", read: "No" },
-];
+let myLibrary = [];
 
 const bookshelf = document.querySelector(".bookshelf");
 const newBookBtn = document.querySelector(".newBook");
@@ -21,12 +18,21 @@ cacnelBtn.addEventListener("click", () => {
 });
 
 bookForm.addEventListener("submit", (event) => {
-    console.log(`Form Submitted! Time stamp: ${event.timeStamp}`);
+    //prevents empty object being added
+    if (!event.target.elements.name.value) {
+        return;
+    }
     event.preventDefault();
-    console.log(event.target.elements.name.value);
-    console.log(event.target.elements.author.value);
-    console.log(event.target.elements.pages.value);
-    console.log(event.target.elements.read.value);
+
+    const bookName = event.target.elements.name.value;
+    const bookAuthor = event.target.elements.author.value;
+    const bookPages = event.target.elements.pages.value;
+    const bookRead = event.target.elements.read.value;
+
+    console.log(bookRead);
+
+    addBookToLibrary(bookName, bookAuthor, bookPages, bookRead);
+    event.target.reset();
 });
 
 function Book(name, author, pages, isRead) {
@@ -39,28 +45,38 @@ function Book(name, author, pages, isRead) {
 function addBookToLibrary(name, author, pages, read) {
     let book = new Book(name, author, pages, read);
     myLibrary.push(book);
+    displayBooks();
 }
 
 function displayBooks() {
-    myLibrary.forEach(function (book, index) {
-        let div = document.createElement("div");
-        let namePara = document.createElement("p");
-        let authorPara = document.createElement("p");
-        let pagesPara = document.createElement("p");
-        let readPara = document.createElement("p");
+    myLibrary.forEach((book, index) => {
+        if (bookshelf.textContent.includes(book.name)) {
+            return;
+        } else {
+            let div = document.createElement("div");
+            let namePara = document.createElement("p");
+            let authorPara = document.createElement("p");
+            let pagesPara = document.createElement("p");
+            let readPara = document.createElement("p");
+            let burnBook = document.createElement("button");
 
-        authorPara.textContent = `Author: ${book.author}`;
-        namePara.textContent = `Title: ${book.name}`;
-        pagesPara.textContent = `Pages: ${book.pages}`;
-        readPara.textContent = `Read: ${book.read}`;
-        div.classList.add("card");
+            authorPara.textContent = `Author: ${book.author}`;
+            namePara.textContent = `Title: ${book.name}`;
+            pagesPara.textContent = `Pages: ${book.pages}`;
+            readPara.textContent = `Read: ${book.read}`;
+            burnBook.textContent = "Burn Book";
+            burnBook.classList.add("remove");
+            div.classList.add("card");
+            div.setAttribute("data-index", index);
 
-        bookshelf.appendChild(div);
+            bookshelf.appendChild(div);
 
-        div.appendChild(authorPara);
-        div.appendChild(namePara);
-        div.appendChild(pagesPara);
-        div.appendChild(readPara);
+            div.appendChild(authorPara);
+            div.appendChild(namePara);
+            div.appendChild(pagesPara);
+            div.appendChild(readPara);
+            div.appendChild(burnBook);
+        }
     });
 }
 
