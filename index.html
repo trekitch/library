@@ -13,14 +13,7 @@
             <h1>Welcome to the Library of Alexandria</h1>
         </header>
         <div class="main">
-            <div class="bookshelf">
-                <div class="card">
-                    <p>Author: John Doe</p>
-                    <p>Title: Best Book Ever</p>
-                    <p>Pages: 325</p>
-                    <p>Read: Yes</p>
-                </div>
-            </div>
+            <div class="bookshelf"></div>
             <div>
                 <button class="newBook">New Book</button>
             </div>
@@ -43,7 +36,10 @@
 
                     <div class="form-row">
                         <label for="read">Read:</label>
-                        <input type="checkbox" name="read" id="read" />
+                        <select name="read" id="read">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
                     </div>
 
                     <div class="form-row">
