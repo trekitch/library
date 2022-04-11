@@ -12,42 +12,48 @@
         <header class="header">
             <h1>Welcome to the Library of Alexandria</h1>
         </header>
-        <div class="main">
-            <div class="bookshelf"></div>
-            <div>
-                <button class="newBook">New Book</button>
-            </div>
-            <div class="formContainer">
-                <form class="bookForm">
-                    <div class="form-row">
-                        <label for="name">Book Title:</label>
-                        <input type="text" name="name" id="name" />
-                    </div>
+        <div class="bookshelf"></div>
+        <div>
+            <button class="newBook">+</button>
+        </div>
+        <div class="formContainer">
+            <form class="bookForm">
+                <div>
+                    <label for="name">Book Title:</label>
+                </div>
+                <div>
+                    <input type="text" name="name" id="name" />
+                </div>
 
-                    <div class="form-row">
-                        <label for="author">Author:</label>
-                        <input type="text" name="author" id="author" />
-                    </div>
+                <div>
+                    <label for="author">Author:</label>
+                </div>
+                <div>
+                    <input type="text" name="author" id="author" />
+                </div>
 
-                    <div class="form-row">
-                        <label for="pages">Pages:</label>
-                        <input type="text" name="pages" id="pages" />
-                    </div>
+                <div>
+                    <label for="pages">Pages:</label>
+                </div>
+                <div>
+                    <input type="text" name="pages" id="pages" />
+                </div>
 
-                    <div class="form-row">
-                        <label for="read">Read:</label>
-                        <select name="read" id="read">
-                            <option value="No">No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </div>
+                <div>
+                    <label for="read">Read:</label>
+                </div>
+                <div>
+                    <select name="read" id="read">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
 
-                    <div class="form-row">
-                        <button type="submit">Add Book</button>
-                    </div>
-                </form>
-                <button class="cancel">Close</button>
-            </div>
+                <div class="submit">
+                    <button type="submit" class="add">Add Book</button>
+                    <button class="cancel" type="button">Close</button>
+                </div>
+            </form>
         </div>
     </body>
 </html>
