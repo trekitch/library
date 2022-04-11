@@ -1,22 +1,28 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Bebas Neue', cursive;
 }
 
 body {
     text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.main {
-    border: 1px solid red;
-    height: 100vh;
+.header {
+    font-size: 30px;
+    background-color: #3b82f6;
 }
 
 .formContainer {
-    border: 1px solid blue;
+    border: 3px solid black;
     width: 300px;
-    height: 350px;
+    height: 360px;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -24,7 +30,27 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: pink;
+    background-color: #f1f5f9;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px gray;
+    font-size: 25px;
+}
+
+.formContainer input{
+    background-color: #FFFFFF;
+  border: 1px solid #D6D9DC;
+  border-radius: 3px;
+  padding: 7px;
+  font-size: 20px;
+}
+
+.formContainer select {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.bookForm label {
+    text-align: right;
 }
 
 .bookForm {
@@ -38,12 +64,62 @@ body {
     padding: 10px;
     justify-content: center;
     gap: 10px;
-    border: 1px solid brown;
-    width: 100%;
+    flex-grow: 1;
+    background-color: #d6d3d1;
 }
 
 .bookshelf > div {
-    border: 1px solid black;
+    border: 3px solid black;
     height: 250px;
     width: 250px;
+    font-size: 20px;
+    border-radius: 3px;
+    padding-top: 30px;
+}
+
+.newBook {
+    background-color: white;
+    border: 2px solid #3b82f6;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    border-radius: 50%;
+    position: absolute;
+    bottom:0;
+    right:0;
+    height: 75px;
+    width: 75px;
+    transition-duration: 0.4s;
+}
+
+.newBook:hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.submit {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.submit > *,
+.remove,
+.read {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 25px;
+}
+
+.cancel,
+.remove {
+    background-color: red;
+}
+
+.add {
+    background-color: green;
 }
