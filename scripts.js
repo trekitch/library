@@ -58,6 +58,9 @@ bookForm.addEventListener("submit", (event) => {
     }
 
     addBookToLibrary(bookName, bookAuthor, bookPages, bookRead);
+
+    bookForm.style.display = "none";
+    formContainer.style.display = "none";
     event.target.reset();
 });
 
@@ -93,7 +96,7 @@ function displayBooks() {
             readPara.textContent = `Read: ${book.isRead}`;
             burnBook.textContent = "Burn Book";
             burnBook.classList.add("remove");
-            readBtn.textContent = "Read";
+            readBtn.textContent = "Read Toggle";
             readBtn.classList.add("read");
             div.classList.add("card");
             div.setAttribute("data-index", index);
@@ -101,9 +104,9 @@ function displayBooks() {
             bookshelf.appendChild(div);
 
             if (book.isRead == "Yes") {
-                div.style.backgroundColor = "#A0FEA7";
+                div.style.backgroundColor = "#84cc16";
             } else {
-                div.style.backgroundColor = "#B22222";
+                div.style.backgroundColor = "#dc2626";
             }
 
             div.appendChild(namePara);
