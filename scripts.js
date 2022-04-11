@@ -23,8 +23,16 @@ bookshelf.addEventListener("click", (event) => {
         console.log(bookIndex);
         console.log(event.target.getAttribute("class"));
         removeBook(bookIndex);
-    } else {
-        return;
+    }
+
+    if (event.target.getAttribute("class") == "read") {
+        if (myLibrary[bookIndex].isRead == "Yes") {
+            myLibrary[bookIndex].isRead = "No";
+        } else {
+            myLibrary[bookIndex].isRead = "Yes";
+        }
+        bookshelf.innerHTML = "";
+        displayBooks();
     }
 });
 
@@ -86,13 +94,20 @@ function displayBooks() {
             burnBook.textContent = "Burn Book";
             burnBook.classList.add("remove");
             readBtn.textContent = "Read";
+            readBtn.classList.add("read");
             div.classList.add("card");
             div.setAttribute("data-index", index);
 
             bookshelf.appendChild(div);
 
-            div.appendChild(authorPara);
+            if (book.isRead == "Yes") {
+                div.style.backgroundColor = "#A0FEA7";
+            } else {
+                div.style.backgroundColor = "#B22222";
+            }
+
             div.appendChild(namePara);
+            div.appendChild(authorPara);
             div.appendChild(pagesPara);
             div.appendChild(readPara);
             div.appendChild(burnBook);
