@@ -4,7 +4,7 @@ const bookshelf = document.querySelector(".bookshelf");
 const newBookBtn = document.querySelector(".newBook");
 const bookForm = document.querySelector(".bookForm");
 const formContainer = document.querySelector(".formContainer");
-const cacnelBtn = document.querySelector(".cancel");
+const cancelBtn = document.querySelector(".cancel");
 const addBook = document.querySelector(".addBook");
 
 newBookBtn.addEventListener("click", () => {
@@ -12,9 +12,20 @@ newBookBtn.addEventListener("click", () => {
     formContainer.style.display = "flex";
 });
 
-cacnelBtn.addEventListener("click", () => {
+cancelBtn.addEventListener("click", () => {
     bookForm.style.display = "none";
     formContainer.style.display = "none";
+});
+
+bookshelf.addEventListener("click", (event) => {
+    let bookIndex = event.target.parentElement.getAttribute("data-index");
+    if (event.target.getAttribute("class") == "remove") {
+        console.log(bookIndex);
+        console.log(event.target.getAttribute("class"));
+        removeBook(bookIndex);
+    } else {
+        return;
+    }
 });
 
 bookForm.addEventListener("submit", (event) => {
@@ -30,6 +41,13 @@ bookForm.addEventListener("submit", (event) => {
     const bookRead = event.target.elements.read.value;
 
     console.log(bookRead);
+
+    //prevents dup books from being added
+    if (myLibrary.some((book) => book.name == bookName)) {
+        console.log("Book already exists");
+        event.target.reset();
+        return;
+    }
 
     addBookToLibrary(bookName, bookAuthor, bookPages, bookRead);
     event.target.reset();
@@ -59,13 +77,15 @@ function displayBooks() {
             let pagesPara = document.createElement("p");
             let readPara = document.createElement("p");
             let burnBook = document.createElement("button");
+            let readBtn = document.createElement("button");
 
             authorPara.textContent = `Author: ${book.author}`;
             namePara.textContent = `Title: ${book.name}`;
             pagesPara.textContent = `Pages: ${book.pages}`;
-            readPara.textContent = `Read: ${book.read}`;
+            readPara.textContent = `Read: ${book.isRead}`;
             burnBook.textContent = "Burn Book";
             burnBook.classList.add("remove");
+            readBtn.textContent = "Read";
             div.classList.add("card");
             div.setAttribute("data-index", index);
 
@@ -76,8 +96,13 @@ function displayBooks() {
             div.appendChild(pagesPara);
             div.appendChild(readPara);
             div.appendChild(burnBook);
+            div.appendChild(readBtn);
         }
     });
 }
 
-displayBooks();
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    bookshelf.innerHTML = "";
+    displayBooks();
+}
