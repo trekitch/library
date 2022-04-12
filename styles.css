@@ -22,7 +22,7 @@ body {
 .formContainer {
     border: 3px solid black;
     width: 300px;
-    height: 360px;
+    min-height: 400px;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -75,6 +75,10 @@ body {
     font-size: 20px;
     border-radius: 3px;
     padding-top: 30px;
+}
+
+.bookshelf > div > p {
+    word-wrap: break-word;
 }
 
 .newBook {
