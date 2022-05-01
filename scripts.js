@@ -20,8 +20,6 @@ cancelBtn.addEventListener("click", () => {
 bookshelf.addEventListener("click", (event) => {
     let bookIndex = event.target.parentElement.getAttribute("data-index");
     if (event.target.getAttribute("class") == "remove") {
-        console.log(bookIndex);
-        console.log(event.target.getAttribute("class"));
         removeBook(bookIndex);
     }
 
@@ -48,11 +46,8 @@ bookForm.addEventListener("submit", (event) => {
     const bookPages = event.target.elements.pages.value;
     const bookRead = event.target.elements.read.value;
 
-    console.log(bookRead);
-
     //prevents dup books from being added
     if (myLibrary.some((book) => book.name == bookName)) {
-        console.log("Book already exists");
         event.target.reset();
         return;
     }
@@ -64,11 +59,13 @@ bookForm.addEventListener("submit", (event) => {
     event.target.reset();
 });
 
-function Book(name, author, pages, isRead) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
+class Book {
+    constructor(name, author, pages, isRead) {
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
 }
 
 function addBookToLibrary(name, author, pages, read) {
